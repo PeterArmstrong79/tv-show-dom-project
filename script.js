@@ -8,21 +8,27 @@ function setup() {
 
 function makePageForEpisodes(episodeList) {
   rootElem.textContent = `Got ${episodeList.length} episode(s)`;
-  episodeList.forEach(episode => {
-    console.log(episode.name, episode.season, episode.number, episode.image.medium, episode.summary);
-    
-  let episodeCard = document.createElement("span")
-  episodeCard.innerText = episode.name;
-  rootElem.appendChild(episodeCard)
+  episodeList.forEach(createCard);
+}
 
-  let episodeImage = src.
-  episodeImage = episode.image.medium
-  rootElem.appendChild(episodeImage)
+function createCard(episode){
+  let card = document.createElement("span");
 
-  })
+  let cardTitle = document.createElement("h2");
+  cardTitle.innerText = episode.name;
+  card.appendChild(cardTitle);
 
+  let cardImage = document.createElement("img");
+  cardImage.src = episode.image.medium;
+  cardImage.alt = episode.name;
+  cardImage.title = episode.name;
+  card.appendChild(cardImage);
 
+  let cardSummary = document.createElement("span");
+  cardSummary.innerHTML = episode.summary;
+  card.appendChild(cardSummary);
 
+  rootElem.appendChild(card);
 
 }
 
