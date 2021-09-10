@@ -1,3 +1,10 @@
 #root {
   color: red;
+  text-align: center;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5px;
 }

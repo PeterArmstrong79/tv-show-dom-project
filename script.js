@@ -4,6 +4,28 @@ const rootElem = document.getElementById("root");
 function setup() {
   const allEpisodes = getAllEpisodes();
   makePageForEpisodes(allEpisodes);
+
+  let searchEpisodesBox = document.querySelector("#searchEpisodes");
+  searchEpisodesBox.addEventListener("keyup", searchEpisodes);
+}
+
+function searchEpisodes(){
+  let searchEpisodesBox = document.querySelector("#searchEpisodes");
+  
+  const allEpisodes = getAllEpisodes();
+  let filteredEpisodes = allEpisodes.filter(filterEpisodes);
+  makePageForEpisodes(filteredEpisodes);
+}
+
+function filterEpisodes (episode){
+  let searchEpisodesBox = document.querySelector("#searchEpisodes");
+
+  if(episode.name.toLowerCase().includes(searchEpisodesBox.value.toLowerCase())){
+    return true;
+  }else{
+    return false;
+  }
+
 }
 
 function makePageForEpisodes(episodeList) {
@@ -12,7 +34,7 @@ function makePageForEpisodes(episodeList) {
 }
 
 function createCard(episode){
-  let card = document.createElement("span");
+  let card = document.createElement("div");
 
   let cardTitle = document.createElement("h2");
   cardTitle.innerText = episode.name;
@@ -29,7 +51,7 @@ function createCard(episode){
   cardImage.title = episode.name;
   card.appendChild(cardImage);
 
-  let cardSummary = document.createElement("span");
+  let cardSummary = document.createElement("p");
   cardSummary.innerHTML = episode.summary;
   card.appendChild(cardSummary);
 
