@@ -7,4 +7,27 @@
   display: flex;
   flex-wrap: wrap;
   margin: 5px;
+  justify-content: center;
+}
+
+.episodeCard {
+  display: flex;
+  width: auto;
+  justify-content: center;
+}
+
+.titleAlign {
+  display: flex;
+}
+
+.episodeNumber {
+  display: flex;
+}
+
+.cardPic {
+  display: flex;
+}
+
+.cardSumm {
+  display: flex;
 }

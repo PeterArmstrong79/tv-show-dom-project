@@ -35,6 +35,7 @@ function makePageForEpisodes(episodeList) {
 
 function createCard(episode){
   let card = document.createElement("div");
+  card.className = "episodeCard"
 
   let cardTitle = document.createElement("h2");
   cardTitle.innerText = episode.name;
@@ -43,16 +44,19 @@ function createCard(episode){
 
   let episodeNumber =  document.createElement("h4");
   episodeNumber.innerText = `S${episode.season.toString().padStart(2, "0")} E${episode.number.toString().padStart(2, "0")}`;
+  episodeNumber.className = "episodeNumber"
   card.appendChild(episodeNumber);
 
   let cardImage = document.createElement("img");
   cardImage.src = episode.image.medium;
   cardImage.alt = episode.name;
   cardImage.title = episode.name;
+  cardImage.className = "cardPic"
   card.appendChild(cardImage);
 
   let cardSummary = document.createElement("p");
   cardSummary.innerHTML = episode.summary;
+  cardSummary.className = "cardSumm"
   card.appendChild(cardSummary);
 
   rootElem.appendChild(card);
