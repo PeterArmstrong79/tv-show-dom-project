@@ -1,12 +1,15 @@
 //You can edit ALL of the code here
 const rootElem = document.getElementById("root");
 
+const header = document.getElementById("header");
+
 function setup() {
   const allEpisodes = getAllEpisodes();
   makePageForEpisodes(allEpisodes);
 
   let searchEpisodesBox = document.querySelector("#searchEpisodes");
-  searchEpisodesBox.addEventListener("keyup", searchEpisodes);
+   searchEpisodesBox.addEventListener("keyup", searchEpisodes);
+   searchEpisodesBox.appendChild(searchEpisodesBox);
 }
 
 function searchEpisodes(){
@@ -29,10 +32,11 @@ function filterEpisodes (episode){
 }
 
 function makePageForEpisodes(episodeList) {
-  rootElem.textContent = `Got ${episodeList.length} episode(s)`;
+  header.textContent = `Got ${episodeList.length} episode(s)`;
   episodeList.forEach(createCard);
 }
 
+//Creates the card that has all episode info in it
 function createCard(episode){
   let card = document.createElement("div");
   card.className = "episodeCard"

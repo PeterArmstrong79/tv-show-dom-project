@@ -3,17 +3,30 @@
   text-align: center;
 }
 
+.top-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.searchEpisodes {
+  display: flex;
+}
+
 .flex-container {
   display: flex;
   flex-wrap: wrap;
-  margin: 5px;
+  margin: 5em;
   justify-content: center;
 }
 
 .episodeCard {
   display: flex;
-  width: auto;
+  flex-direction: column;
   justify-content: center;
+  border: 2px solid black;
+  width: 20em;
+  height: 50em;
 }
 
 .titleAlign {
